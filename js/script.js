@@ -46,27 +46,35 @@ if (playerInput == '3') {
 
 printMessage('Twój ruch to: ' + playerMove);
 
-let gameResult = 'Ups! Błąd';
+let gameResult =
+  'Ups! Musisz wpisać 1, 2 lub 3, by program zadziałał poprawnie. Odśwież stronę, by spróbować jeszcze raz!';
 
-if (playerInput == '1' && computerMove == '2') {
-  gameResult = 'Gratulujemy wygranej!';
-} else {
-  gameResult = 'Komputer wygrał! Odegraj się w następnej partii!';
-
-if (playerInput == '2' && computerMove == '3') {
-  gameResult = 'Gratulujemy wygranej!';
-} else {
-  gameResult = 'Komputer wygrał! Odegraj się w następnej partii!';
-
-if (playerInput == '3' && computerMove == '1') {
-  gameResult = 'Gratulujemy wygranej!';
-} else {
-  gameResult = 'Komputer wygrał! Odegraj się w następnej partii!';
-
-if (playerInput == computerMove) {
-  gameResult = 'Remis!';
-} else {
-  gameResult = 'Komputer wygrał! Odegraj się w następnej partii!';
+if (playerMove == 'kamień' && computerMove == 'papier') {
+  gameResult = 'Komputer wygrał! Odegraj się w następnej rundzie!';
 }
 
-printMessage('Wynik?'+ gameResult)
+if (playerMove == 'papier' && computerMove == 'nożyce') {
+  gameResult = 'Komputer wygrał! Odegraj się w następnej rundzie!';
+}
+
+if (playerMove == 'nożyce' && computerMove == 'kamień') {
+  gameResult = 'Komputer wygrał! Odegraj się w następnej rundzie!';
+}
+
+if (playerMove == 'papier' && computerMove == 'kamień') {
+  gameResult = 'Gratulujemy wygranej!';
+}
+
+if (playerMove == 'nożyce' && computerMove == 'papier') {
+  gameResult = 'Gratulujemy wygranej!';
+}
+
+if (playerMove == 'kamień' && computerMove == 'nożyce') {
+  gameResult = 'Gratulujemy wygranej!';
+}
+
+if (playerMove == computerMove) {
+  gameResult = 'Remis!';
+}
+
+printMessage(gameResult);
