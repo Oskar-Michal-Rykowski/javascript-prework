@@ -1,8 +1,12 @@
 let randomNumber = Math.floor(Math.random() * 3 + 1);
+console.log('Wylosowana liczba to: ' + randomNumber);
 
-let computerMove = 'błąd';
-let winnersMove = 'błąd';
+let computerMove = getMoveName(randomNumber);
+console.log('Ruch komputera to: ' + computerMove);
 
+let winnersMove = getWinMoveName(randomNumber);
+console.log('Ruch, bijący komputer: ' + winnersMove);
+/*
 if (randomNumber == '1') {
   computerMove = 'kamień';
   winnersMove = 'papier';
@@ -17,6 +21,7 @@ if (randomNumber == '3') {
   computerMove = 'nożyce';
   winnersMove = 'kamień';
 }
+*/
 
 printMessage(
   'Zagrałem ' +
@@ -30,8 +35,10 @@ let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.
 
 console.log('Gracz wpisał: ' + playerInput);
 
-let playerMove = 'nieznany ruch';
+let playerMove = getMoveName(playerInput);
 
+console.log('Ruch gracza to: ' + playerMove);
+/*
 if (playerInput == '1') {
   playerMove = 'kamień';
 }
@@ -43,38 +50,46 @@ if (playerInput == '2') {
 if (playerInput == '3') {
   playerMove = 'nożyce';
 }
+*/
 
 printMessage('Twój ruch to: ' + playerMove);
+
+let gameResult = displayResult(playerMove, computerMove);
+
+console.log('Wynik meczu z perspektywy gracza to: ' + gameResult);
+/*
 
 let gameResult =
   'Ups! Musisz wpisać 1, 2 lub 3, by program zadziałał poprawnie. Odśwież stronę, by spróbować jeszcze raz!';
 
 if (playerMove == 'kamień' && computerMove == 'papier') {
-  gameResult = 'Komputer wygrał! Odegraj się w następnej rundzie!';
+  gameResult = 'Przegrana';
 }
 
 if (playerMove == 'papier' && computerMove == 'nożyce') {
-  gameResult = 'Komputer wygrał! Odegraj się w następnej rundzie!';
+  gameResult = 'Przegrana';
 }
 
 if (playerMove == 'nożyce' && computerMove == 'kamień') {
-  gameResult = 'Komputer wygrał! Odegraj się w następnej rundzie!';
+  gameResult = 'Przegrana';
 }
 
 if (playerMove == 'papier' && computerMove == 'kamień') {
-  gameResult = 'Gratulujemy wygranej!';
+  gameResult = 'Wygrana';
 }
 
 if (playerMove == 'nożyce' && computerMove == 'papier') {
-  gameResult = 'Gratulujemy wygranej!';
+  gameResult = 'Wygrana';
 }
 
 if (playerMove == 'kamień' && computerMove == 'nożyce') {
-  gameResult = 'Gratulujemy wygranej!';
+  gameResult = 'Wygrana';
 }
 
 if (playerMove == computerMove) {
   gameResult = 'Remis!';
 }
 
-printMessage(gameResult);
+*/
+
+printMessage('Rezultat: ' + gameResult);
