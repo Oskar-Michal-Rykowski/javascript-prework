@@ -32,15 +32,15 @@ console.log('Gracz wpisał: ' + playerInput);
 
 let playerMove = 'nieznany ruch';
 
-if (playerInput == '1') {
+if (playerInput === '1') {
   playerMove = 'kamień';
 }
 
-if (playerInput == '2') {
+if (playerInput === '2') {
   playerMove = 'papier';
 }
 
-if (playerInput == '3') {
+if (playerInput === '3') {
   playerMove = 'nożyce';
 }
 
