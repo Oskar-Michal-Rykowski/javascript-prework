@@ -1,32 +1,50 @@
-let randomNumber = Math.floor(Math.random() * 3 + 1);
-console.log('Wylosowana liczba to: ' + randomNumber);
+function playGame(playerInput) {
+  clearMessages();
 
-let computerMove = getMoveName(randomNumber);
-console.log('Ruch komputera to: ' + computerMove);
+  let randomNumber = Math.floor(Math.random() * 3 + 1);
+  console.log('Wylosowana liczba to: ' + randomNumber);
 
-let winnersMove = getWinMoveName(randomNumber);
-console.log('Ruch, bijący komputer: ' + winnersMove);
+  let computerMove = getMoveName(randomNumber);
+  console.log('Ruch komputera to: ' + computerMove);
 
-printMessage(
-  'Zagrałem ' +
-    computerMove +
-    '! Jeśli Twój ruch to ' +
-    winnersMove +
-    ', to wygrywasz!'
-);
+  let winnersMove = getWinMoveName(randomNumber);
+  console.log('Ruch, bijący komputer: ' + winnersMove);
 
-let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+  printMessage(
+    'Zagrałem ' +
+      computerMove +
+      '! Jeśli Twój ruch to ' +
+      winnersMove +
+      ', to wygrywasz!'
+  );
 
-console.log('Gracz wpisał: ' + playerInput);
+  /* let playerInput = prompt(
+    'Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.'
+  );*/
 
-let playerMove = getMoveName(playerInput);
+  console.log('Gracz wpisał: ' + playerInput);
 
-console.log('Ruch gracza to: ' + playerMove);
+  let playerMove = getMoveName(playerInput);
 
-printMessage('Twój ruch to: ' + playerMove);
+  console.log('Ruch gracza to: ' + playerMove);
 
-let gameResult = displayResult(playerMove, computerMove);
+  printMessage('Twój ruch to: ' + playerMove);
 
-console.log('Wynik meczu z perspektywy gracza to: ' + gameResult);
+  let gameResult = displayResult(playerMove, computerMove);
 
-printMessage('Rezultat: ' + gameResult);
+  console.log('Wynik meczu z perspektywy gracza to: ' + gameResult);
+
+  printMessage('Rezultat: ' + gameResult);
+}
+
+document.getElementById('play-rock').addEventListener('click', function () {
+  playGame(1);
+});
+
+document.getElementById('play-paper').addEventListener('click', function () {
+  playGame(2);
+});
+
+document.getElementById('play-scissors').addEventListener('click', function () {
+  playGame(3);
+});
